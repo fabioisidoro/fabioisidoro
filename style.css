@@ -1,0 +1,484 @@
+/* GERAIS E RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta Suave e Sofisticada */
+    --cor-primaria: #f9f4f1; /* Nude Claro/Off-White (Fundo principal) */
+    --cor-secundaria: #E6B0AA; /* Rosé Suave/Pêssego Queimado (Destaque) */
+    --cor-terciaria: #C79A9A; /* Rosé Mais Escuro (Botões/Hover) */
+    --cor-texto-escuro: #4a4a4a; /* Cinza Escuro Suave (Texto principal) */
+    --cor-texto-claro: #ffffff;
+    --cor-fundo-secundario: #ffffff; /* Fundo de Cards/Seções Claras */
+    --cor-fundo-escuro:  #464343;
+
+
+    /* Tipografia */
+    --fonte-titulo: 'Great Vibes', cursive;
+    --fonte-corpo: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-escuro);
+    line-height: 1.6;
+    padding-top: 70px; /* Espaço para o header fixo */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tipografia e Títulos */
+h2, h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--cor-texto-escuro);
+}
+
+h3 {
+    font-size: 2em;
+    margin-top: 0;
+}
+
+.subtitulo {
+    font-size: 1.1em;
+    font-weight: 300;
+    color: var(--cor-terciaria);
+    margin-bottom: 10px;
+}
+
+.section-desc {
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    color: #888;
+}
+
+/* BOTÕES (Design Interativo) */
+.btn-primario, .btn-secundario, .btn-principal, .btn-whatsapp, .btn-mapa {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 30px; /* Borda arredondada suave */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-principal {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-claro);
+    box-shadow: 0 4px 10px rgba(230, 176, 170, 0.4);
+    margin-right: 15px;
+}
+
+.btn-principal:hover {
+    background-color: var(--cor-terciaria);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(199, 154, 154, 0.5);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: var(--cor-texto-escuro);
+    border-color: var(--cor-terciaria);
+}
+
+.btn-secundario:hover {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-claro);
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    color: var(--cor-texto-claro);
+    padding: 12px 20px;
+    border-radius: 30px;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+}
+
+/* 1. CABEÇALHO */
+header {
+    background-color: var(--cor-fundo-secundario);
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*.logo {
+    font-family: var(--fonte-titulo);
+    font-size: 2.5em;
+    font-weight: 400;
+    color: var(--cor-texto-escuro);
+}
+
+.logo .lizi {
+    color: var(--cor-secundaria);
+}*/
+
+.logo-img {
+    height: 350px; /* Define a altura da imagem (ajuste se necessário) */
+    width: auto;
+    display: block;
+    position: absolute;
+}
+
+.logo-img-link {
+    display: flex;
+    align-items: center; /* Garante que a imagem esteja centralizada verticalmente */
+    text-decoration: none;
+}
+
+/* Garante que o alinhamento no cabeçalho permaneça no canto esquerdo */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--cor-texto-escuro);
+    font-weight: 400;
+    margin-left: 25px;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.btn-secundario {
+    color: var(--cor-secundaria);
+}
+
+/* 2. SEÇÃO HERO */
+.hero {
+    /*background: var(--cor-primaria);*/
+    background: url('local3.jpg') no-repeat center center/cover;
+    position: relative; /* Necessário para o overlay */
+    padding: 200px 0;
+    text-align: center;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-texto-claro); /* Mude a cor do texto para branco para contraste */
+}
+
+/* Overlay para o Texto (melhora a legibilidade sobre a imagem) */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay preto semi-transparente (40% opacidade) */
+    z-index: 1; /* Garante que o overlay fique abaixo do conteúdo do hero */
+}
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+.hero p.subtitulo,
+.hero h2,
+.hero p.descricao {
+    color: var(--cor-texto-claro); /* Texto branco para contraste */
+}
+
+.hero h2 {
+    font-family: var(--fonte-titulo);
+    font-size: 4em;
+    /*color: var(--cor-texto-escuro);*/
+    margin-bottom: 20px;
+}
+
+.hero p.descricao {
+    font-weight: 300;
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+/* Efeito de Pulsar no Botão Principal */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 176, 170, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(230, 176, 170, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 176, 170, 0); }
+}
+
+.pulse-effect {
+    animation: pulse 2s infinite;
+}
+
+/* 3. SEÇÃO SERVIÇOS */
+.servicos {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--cor-fundo-secundario);
+}
+
+.cards-servicos {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: var(--cor-primaria);
+    padding: 30px;
+    border-radius: 10px;
+    flex: 1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(230, 176, 170, 0.2);
+}
+
+.card i {
+    font-size: 2.5em;
+    color: var(--cor-secundaria);
+    margin-bottom: 15px;
+}
+
+.card h4 {
+    color: var(--cor-texto-escuro);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+
+/* 4. GALERIA */
+.galeria {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--cor-primaria);
+}
+
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.galeria-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.galeria-item img:hover {
+    transform: scale(1.05);
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+
+/* 5. CADASTRO */
+.cadastro {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--cor-fundo-secundario);
+}
+
+.form-cadastro {
+    max-width: 500px;
+    margin: 30px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-cadastro input {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: var(--fonte-corpo);
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-cadastro input:focus {
+    border-color: var(--cor-secundaria);
+    outline: none;
+}
+
+
+/* 6. CONTATO E ENDEREÇO */
+.contato {
+    padding: 80px 0;
+    background-color: var(--cor-primaria);
+}
+
+.grid-contato {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    text-align: left;
+}
+
+.info-local {
+    padding-top: 20px;
+}
+
+.info-local p {
+    margin-bottom: 15px;
+    font-size: 1.05em;
+    color: var(--cor-texto-escuro);
+}
+
+.info-local i {
+    color: var(--cor-secundaria);
+    margin-right: 10px;
+}
+
+.mapa-placeholder iframe {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-mapa {
+    background-color: var(--cor-texto-escuro);
+    color: var(--cor-texto-claro);
+    padding: 10px 20px;
+    margin-top: 15px;
+}
+
+.btn-mapa:hover {
+    background-color: #000;
+}
+
+/* RODAPÉ */
+footer {
+    background-color: var(--cor-texto-escuro);
+    color: #bbb;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #bbb;
+}
+
+.social-links a {
+    color: var(--cor-secundaria);
+    font-size: 1.3em;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--cor-terciaria);
+}
+
+/* RESPONSIVIDADE (Design Adaptável) */
+@media (max-width: 900px) {
+    .grid-contato {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h2 {
+        font-size: 3em;
+    }
+
+    .cards-servicos {
+        flex-direction: column;
+    }
+
+    .info-local, .mapa-placeholder {
+        text-align: center;
+    }
+    
+    .info-local h3, .info-local p {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li a {
+        margin: 5px 10px;
+    }
+
+    .mobile-hide {
+        display: none; /* Esconde o botão de agendamento no mobile para priorizar o menu */
+    }
+
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+    
+    .btn-principal {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .grid-galeria {
+        grid-template-columns: 1fr;
+    }
+}
